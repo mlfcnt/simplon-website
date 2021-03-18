@@ -102,7 +102,11 @@ keystone.createList("Talent", {
 
 keystone.createList("Contact", {
   fields: {
-    title: {
+    subject: {
+      type: Text,
+      isRequired: true,
+    },
+    name: {
       type: Text,
       isRequired: true,
     },
@@ -110,7 +114,7 @@ keystone.createList("Contact", {
       type: Text,
       isRequired: true,
     },
-    content: {
+    message: {
       type: Text,
       isRequired: true,
     },
