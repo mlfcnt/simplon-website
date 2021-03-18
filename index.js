@@ -5,15 +5,20 @@ const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
 const { NextApp } = require("@keystonejs/app-next");
+require("dotenv").config();
 
 const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
 const adapterConfig = {
-  mongoUri: process.env.mongoUri,
+  mongoUri: process.env.MONGO_URI,
 };
 
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   onConnect: process.env.CREATE_TABLES !== "true" && initialiseData,
+  cookie: {
+    secure: true,
+  },
+  cookieSecret: process.env.COOKIE_SECRET,
 });
 
 // Access control functions
