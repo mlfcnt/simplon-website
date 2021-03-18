@@ -6,6 +6,7 @@ const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
 const { NextApp } = require("@keystonejs/app-next");
 require("dotenv").config();
+const { Markdown } = require("@keystonejs/fields-markdown");
 
 const { MongooseAdapter: Adapter } = require("@keystonejs/adapter-mongoose");
 const adapterConfig = {
@@ -66,6 +67,55 @@ keystone.createList("User", {
     read: access.userIsAdminOrOwner,
     update: access.userIsAdminOrOwner,
     create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
+});
+
+keystone.createList("Session", {
+  fields: {
+    content: {
+      type: Markdown,
+    },
+  },
+  access: {
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
+});
+
+keystone.createList("Talent", {
+  fields: {
+    content: {
+      type: Markdown,
+    },
+  },
+  access: {
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
+});
+
+keystone.createList("Contact", {
+  fields: {
+    title: {
+      type: Text,
+      isRequired: true,
+    },
+    email: {
+      type: Text,
+      isRequired: true,
+    },
+    content: {
+      type: Text,
+      isRequired: true,
+    },
+  },
+  access: {
     delete: access.userIsAdmin,
     auth: true,
   },
