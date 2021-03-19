@@ -15,7 +15,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-        <ReactQueryDevtools />
+        <ReactQueryDevtools position="top-right" containerElement="div"/>
       </QueryClientProvider>
     </SectionProvider>
   );

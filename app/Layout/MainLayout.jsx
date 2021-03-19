@@ -1,5 +1,5 @@
 import { Header } from "./Header";
-import {Footer} from "../components/Footer";
+import {Footer} from "./Footer";
 
 const MainLayout = ({ children }) => {
   return (
