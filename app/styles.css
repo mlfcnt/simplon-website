@@ -8,6 +8,7 @@ html {
 }
 body {
   background-color: #f1f5f8;
+  margin-bottom: 10vh;
 }
 
 html > * {
@@ -110,4 +111,48 @@ h4 {
   width: 200px;
   height: 200px;
   object-fit: contain;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ce0033;
+  height: 5vh;
+  color: white;
+  margin-top: "5rem";
+}
+
+.liens {
+  color: white;
+}
+.liens:hover {
+  color: black;
+}
+
+.footer-btn {
+  background-color: #fff;
+  border: none;
+  color: black;
+}
+
+.scroll_to_top_button {
+  position: fixed;
+  bottom: 8vh;
+  cursor: pointer;
+  font-size: 5vh;
+  display: flex;
+  align-items: center;
+  color: black;
+  right: 2vw;
+}
+.scroll_to_top_button span {
+  font-size: 3vh;
+}
+
+.scroll_to_top_button:hover {
+  color: #ce0033;
+  border-color: #ce0033;
 }
