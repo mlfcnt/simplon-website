@@ -27,6 +27,7 @@ header {
   background-image: url(https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
   background-position-x: center;
   background-position-y: 594px;
+  cursor: pointer;
 }
 
 .main-title {
@@ -48,22 +49,23 @@ header {
   align-items: center;
   background-color: #ce0033;
   color: #fff;
-  font-size: 2rem;
+  font-size: 2.4rem;
   height: 200px;
   width: 500px;
   text-align: center;
   justify-content: center;
-  border: 2px solid black;
+  border: 1px solid black;
   cursor: pointer;
 }
 
 main {
-  border: 20px solid #ce0033;
+  /* border-top: 2px solid #ce0033; */
   height: 100%;
   width: 70%;
   margin: auto;
   /* background-color: #ce0033; */
   min-height: 50rem;
+  margin-bottom: 5rem;
 }
 
 .contact-form {
@@ -83,4 +85,8 @@ input {
 
 .input-bloc {
   text-align: left !important;
+}
+
+.markdown-bloc > * {
+  list-style: none;
 }

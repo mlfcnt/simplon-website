@@ -3,7 +3,6 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import Head from "next/head";
 import SectionProvider from "../context/SectionContext";
 import "../styles.css";
-// import "milligram/dist/milligram.min.css";
 
 const MyApp = ({ Component, pageProps }) => {
   const queryClient = new QueryClient();

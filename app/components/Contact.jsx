@@ -10,15 +10,15 @@ export const Contact = () => {
       <form onSubmit={handleSumbit}>
         <fieldset>
           <div className="input-bloc">
-            <label for="nameField">Nom</label>
+            <label htmlFor="nameField">Nom</label>
             <input type="text" id="nameField" required />
           </div>
           <div className="input-bloc">
-            <label for="emailField">Email</label>
+            <label htmlFor="emailField">Email</label>
             <input type="email" id="emailField" required />
           </div>
-          <label for="messageField">Message</label>
-          <textarea placeholder="Pierre tu es très beau" id="messageField" />
+          <label htmlFor="messageField">Message</label>
+          <textarea id="messageField" />
           <input
             style={{ backgroundColor: "#ce0033", border: "none" }}
             type="submit"

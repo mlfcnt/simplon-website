@@ -17,15 +17,40 @@ const graphql = (query, variables = {}) =>
 export const GET_TALENTS = `
 query{
   allTalents{
+      id
       content
+      order
   }
 }
   `;
 
-const fetchTalents = () => graphql(GET_TALENTS);
+export const GET_SESSIONS = `
+query{
+  allSessions{
+      id
+      content
+      order
+  }
+}
+  `;
+
+const fetchStuff = (gqlQuery) => graphql(gqlQuery);
 
 export const useTalents = () => {
-  const { isLoading, data, error } = useQuery("talents", fetchTalents);
+  const { isLoading, data, error } = useQuery("talents", () =>
+    fetchStuff(GET_TALENTS)
+  );
+
+  return {
+    isLoading,
+    data,
+    error,
+  };
+};
+export const useSessions = () => {
+  const { isLoading, data, error } = useQuery("sessions", () =>
+    fetchStuff(GET_SESSIONS)
+  );
 
   return {
     isLoading,

@@ -1,6 +1,6 @@
 const { Keystone } = require("@keystonejs/keystone");
 const { PasswordAuthStrategy } = require("@keystonejs/auth-password");
-const { Text, Checkbox, Password } = require("@keystonejs/fields");
+const { Text, Checkbox, Password, Integer } = require("@keystonejs/fields");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
@@ -77,6 +77,9 @@ keystone.createList("Session", {
     content: {
       type: Markdown,
     },
+    order: {
+      type: Integer,
+    },
   },
   access: {
     update: access.userIsAdminOrOwner,
@@ -90,6 +93,9 @@ keystone.createList("Talent", {
   fields: {
     content: {
       type: Markdown,
+    },
+    order: {
+      type: Integer,
     },
   },
   access: {

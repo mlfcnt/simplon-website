@@ -1,5 +1,5 @@
 import { useTalents } from "../lib/api";
-import ReactMarkdown from "react-markdown";
+import { useMarkdown } from "../lib/hooks/useMarkdown";
 
 export const Talents = () => {
   const {
@@ -8,8 +8,27 @@ export const Talents = () => {
     error,
   } = useTalents();
 
-  if (isLoading) return <p>Chargement...</p>;
-  return allTalents.map(({ id, content }) => {
-    return <ReactMarkdown key={id}>{content}</ReactMarkdown>;
+  const result = useMarkdown(allTalents, {
+    showDivider: false,
+    style: {
+      width: "45%",
+      marginTop: "3rem",
+      backgroundColor: "#ce0033",
+      color: "#FFF",
+    },
   });
+
+  if (isLoading) return <p>Chargement...</p>;
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "row",
+        flexWrap: "wrap",
+      }}
+    >
+      {result}
+    </div>
+  );
 };
