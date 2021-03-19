@@ -11,9 +11,7 @@ export const useMarkdown = (items, options = {}) => {
         <ReactMarkdown linkTarget="_blank" className="markdown-bloc">
           {content}
         </ReactMarkdown>
-        {options.showDivider && idx !== sorted.length - 1 && (
-          <hr style={{ width: "20%", margin: "3rem auto" }} />
-        )}
+        {options.showDivider && idx !== sorted.length - 1 && <hr />}
       </div>
     );
     idx = idx + 1;

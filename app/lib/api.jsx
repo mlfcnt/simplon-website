@@ -14,42 +14,26 @@ const graphql = (query, variables = {}) =>
     return result.json();
   });
 
-export const GET_TALENTS = `
+const GET_PORTFOLIOS = `
 query{
-  allTalents{
-      id
-      content
-      order
-  }
-}
-  `;
-
-export const GET_SESSIONS = `
-query{
-  allSessions{
-      id
-      content
-      order
+  allPortfolios {
+    id
+		firstName
+    lastName
+    email
+    imageUrl
+    tags {
+      name
+    }
   }
 }
   `;
 
 const fetchStuff = (gqlQuery) => graphql(gqlQuery);
 
-export const useTalents = () => {
-  const { isLoading, data, error } = useQuery("talents", () =>
-    fetchStuff(GET_TALENTS)
-  );
-
-  return {
-    isLoading,
-    data,
-    error,
-  };
-};
-export const useSessions = () => {
-  const { isLoading, data, error } = useQuery("sessions", () =>
-    fetchStuff(GET_SESSIONS)
+export const usePortfolios = () => {
+  const { isLoading, data, error } = useQuery("portfolios", () =>
+    fetchStuff(GET_PORTFOLIOS)
   );
 
   return {

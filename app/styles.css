@@ -14,8 +14,8 @@ html > * {
 header {
   padding: 0;
   margin: 0;
-  background-color: #fff;
   padding-bottom: 5rem;
+  color: "#FFF";
 }
 
 .header-block {
@@ -89,4 +89,8 @@ input {
 
 .markdown-bloc > * {
   list-style: none;
+}
+
+h4 {
+  display: inline;
 }

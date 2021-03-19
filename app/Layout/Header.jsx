@@ -1,37 +1,22 @@
-import React, { useContext } from "react";
-import { eSections } from "../lib/constants/sections";
-import { SectionContext } from "../context/SectionContext";
+import React from "react";
 
 export const Header = () => {
-  const [, setSelectedSession] = useContext(SectionContext);
-
   return (
     <header>
-      <div className="header-block" onClick={() => setSelectedSession(null)}>
-        <h1 className="main-title">Simplon Chambéry</h1>
-        <h2 className="main-subtitle">École inclusive du numérique</h2>
-      </div>
-      <div className="menu-flex">
+      <div className="header-block">
         <div
-          className="menu-bloc align-vertically"
-          onClick={() => setSelectedSession(eSections.sessions)}
+          class="header-text"
+          style={{
+            backgroundColor: "#FFF",
+            opacity: "0.60",
+            color: "black",
+            margin: "auto",
+            padding: "2rem auto",
+          }}
         >
-          <div>
-            <h4>Vous voulez vous former ?</h4>
-            <h5>Nos Sessions</h5>
-          </div>
-        </div>
-        <div
-          className="menu-bloc align-vertically"
-          onClick={() => setSelectedSession(eSections.talents)}
-        >
-          <h4>Recrutez nos talents</h4>
-        </div>
-        <div
-          className="menu-bloc"
-          onClick={() => setSelectedSession(eSections.contact)}
-        >
-          <h4>Nous contacter</h4>
+          <h1 className="main-title">Simplon Chambéry</h1>
+          <h2 className="main-subtitle">École inclusive du numérique</h2>
+          <h2 className="main-subtitle">Adoptes un Simplonien</h2>
         </div>
       </div>
     </header>

@@ -4,9 +4,7 @@ const MainLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main style={{ marginTop: "100px", textAlign: "center" }}>
-        {children}
-      </main>
+      <main>{children}</main>
     </>
   );
 };
