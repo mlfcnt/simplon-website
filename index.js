@@ -1,6 +1,12 @@
 const { Keystone } = require("@keystonejs/keystone");
 const { PasswordAuthStrategy } = require("@keystonejs/auth-password");
-const { Text, Checkbox, Password, Integer } = require("@keystonejs/fields");
+const {
+  Text,
+  Checkbox,
+  Password,
+  Integer,
+  Relationship,
+} = require("@keystonejs/fields");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
 const initialiseData = require("./initial-data");
@@ -72,60 +78,64 @@ keystone.createList("User", {
   },
 });
 
-keystone.createList("Session", {
+keystone.createList("Actu", {
   fields: {
     content: {
       type: Markdown,
+      isRequired: true,
     },
     order: {
       type: Integer,
     },
   },
   access: {
-    update: access.userIsAdminOrOwner,
+    update: access.userIsAdmin,
     create: access.userIsAdmin,
     delete: access.userIsAdmin,
     auth: true,
   },
 });
 
-keystone.createList("Talent", {
+keystone.createList("Tag", {
   fields: {
-    content: {
-      type: Markdown,
-    },
-    order: {
-      type: Integer,
-    },
-  },
-  access: {
-    update: access.userIsAdminOrOwner,
-    create: access.userIsAdmin,
-    delete: access.userIsAdmin,
-    auth: true,
-  },
-});
-
-keystone.createList("Contact", {
-  fields: {
-    subject: {
+    name: {
       type: Text,
       isRequired: true,
     },
-    name: {
+  },
+  access: {
+    update: access.userIsAdmin,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
+});
+
+keystone.createList("Portfolio", {
+  fields: {
+    firstName: {
+      type: Text,
+      isRequired: true,
+    },
+    lastName: {
       type: Text,
       isRequired: true,
     },
     email: {
       type: Text,
-      isRequired: true,
     },
-    message: {
+    imageUrl: {
       type: Text,
-      isRequired: true,
+    },
+    tags: {
+      type: Relationship,
+      ref: "Tag",
+      many: true,
     },
   },
   access: {
+    update: access.userIsAdmin,
+    create: access.userIsAdmin,
     delete: access.userIsAdmin,
     auth: true,
   },
