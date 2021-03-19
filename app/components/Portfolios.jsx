@@ -33,15 +33,30 @@ export const Portfolios = ({ selectedTag }) => {
           <Card
             key={id}
             hoverable
-            style={{ width: 300, marginBottom: "2rem" }}
-            // cover={<img alt="example" src={imageUrl} />}
+            style={{
+              width: 250,
+              marginBottom: "2rem",
+              marginRight: "2rem",
+              minHeight: "300px",
+            }}
           >
             <Image width={200} src={imageUrl} />
-            <Meta
-              title={`${firstName} ${lastName}`}
-              description="www.instagram.com"
-            />
-            <Button type="primary">Adoptez moi</Button>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "-10px",
+                padding: "inherit",
+                textAlign: "center",
+              }}
+            >
+              <Meta
+                title={`${firstName} ${lastName}`}
+                style={{ marginBottom: "5px" }}
+              />
+              <Button type="primary" href="http://google.com" target="_blank">
+                Contacter {firstName}
+              </Button>
+            </div>
           </Card>
         ))}
       </div>

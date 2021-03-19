@@ -5,7 +5,7 @@ export const Header = () => {
     <header>
       <div className="header-block">
         <div
-          class="header-text"
+          className="header-text"
           style={{
             backgroundColor: "#f1f5f8",
             opacity: "0.60",
@@ -16,7 +16,6 @@ export const Header = () => {
         >
           <h1 className="main-title">Simplon Chambéry</h1>
           <h2 className="main-subtitle">École inclusive du numérique</h2>
-          <h2 className="main-subtitle">Adoptes un Simplonien</h2>
         </div>
       </div>
     </header>
