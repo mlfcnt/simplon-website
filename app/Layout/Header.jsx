@@ -7,7 +7,7 @@ export const Header = () => {
         <div
           class="header-text"
           style={{
-            backgroundColor: "#FFF",
+            backgroundColor: "#f1f5f8",
             opacity: "0.60",
             color: "black",
             margin: "auto",

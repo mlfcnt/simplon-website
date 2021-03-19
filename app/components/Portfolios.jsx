@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
 import { usePortfolios } from "../lib/api";
+import { Card, Button, Image } from "antd";
+const { Meta } = Card;
 
 export const Portfolios = ({ selectedTag }) => {
   const {
@@ -24,26 +26,24 @@ export const Portfolios = ({ selectedTag }) => {
   if (error) return <p>Oops...</p>;
 
   return (
-    <div>
+    <div id="event1-apprenants">
       <h3>{`Apprenants disponible (${filteredPortfolios.length})`}</h3>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {filteredPortfolios.map(
-          ({ firstName, lastName, email, id, imageUrl, tags }) => (
-            <div
-              key={id}
-              style={{
-                border: "2px solid #ce0033",
-                padding: "4rem",
-                width: "150px",
-                height: "150px",
-              }}
-            >
-              <img src={imageUrl} alt="" style={{ width: "inherit" }} />
-              <p>{`${firstName} ${lastName}`}</p>
-              <p>{tags.map((x) => x.name).join(",")}</p>
-            </div>
-          )
-        )}
+        {filteredPortfolios.map(({ firstName, lastName, id, imageUrl }) => (
+          <Card
+            key={id}
+            hoverable
+            style={{ width: 300, marginBottom: "2rem" }}
+            // cover={<img alt="example" src={imageUrl} />}
+          >
+            <Image width={200} src={imageUrl} />
+            <Meta
+              title={`${firstName} ${lastName}`}
+              description="www.instagram.com"
+            />
+            <Button type="primary">Adoptez moi</Button>
+          </Card>
+        ))}
       </div>
     </div>
   );

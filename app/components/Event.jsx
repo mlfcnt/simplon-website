@@ -5,12 +5,10 @@ import { Portfolios } from "./Portfolios";
 export const Event = () => {
   const [selectedTag, setSelectedTag] = useState(null);
   return (
-    <div>
+    <div id="event1">
       <h2>Stages de 2 semaines</h2>
       <h3>Avril - Mai 2021</h3>
-      <span>Tag sélectionné : </span>
-      {selectedTag}
-      <p>
+      <p id="event1-description">
         Le programme de formation (346h sur 2 mois et demi) s’articule autour de
         la découverte d’une culture numérique, l’appropriation des outils
         bureautiques et l’acquisition des compétences numériques fondamentales.
@@ -24,7 +22,7 @@ export const Event = () => {
         Découverte des métiers du numérique. Profils généralistes opérationnels
         sur des missions :
       </p>
-      <h4>BUREAUTIQUE</h4>{" "}
+      <h4 id="event1-tags-list">BUREAUTIQUE</h4>{" "}
       <button onClick={() => setSelectedTag(eTags.BUREAUTIQUE)}>
         Voir les profiles liés
       </button>

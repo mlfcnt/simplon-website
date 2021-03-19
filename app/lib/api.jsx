@@ -20,7 +20,6 @@ query{
     id
 		firstName
     lastName
-    email
     imageUrl
     tags {
       name

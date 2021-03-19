@@ -1,8 +1,13 @@
+@import "~antd/dist/antd.css";
+
 html {
   /* background-color: black; */
   background-color: #f1f5f8;
   padding: 0;
   margin: 0;
+}
+body {
+  background-color: #f1f5f8;
 }
 
 html > * {
@@ -14,8 +19,7 @@ html > * {
 header {
   padding: 0;
   margin: 0;
-  padding-bottom: 5rem;
-  color: "#FFF";
+  color: #fff;
 }
 
 .header-block {
@@ -48,7 +52,7 @@ header {
   display: flex;
   align-items: center;
   background-color: #ce0033;
-  color: #fff;
+  color: #f1f5f8;
   font-size: 2.4rem;
   height: 200px;
   width: 500px;
@@ -93,4 +97,12 @@ input {
 
 h4 {
   display: inline;
+}
+
+.anchor-bloc > * {
+  background-color: #f1f5f8 !important;
+}
+.anchor-bloc {
+  margin-bottom: 5rem;
+  border: none !important;
 }
