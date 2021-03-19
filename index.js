@@ -17,7 +17,7 @@ const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   onConnect: process.env.CREATE_TABLES !== "true" && initialiseData,
   cookie: {
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
   },
   cookieSecret: process.env.COOKIE_SECRET,
 });
