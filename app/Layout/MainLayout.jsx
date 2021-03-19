@@ -1,4 +1,5 @@
 import { Header } from "./Header";
+import {Footer} from "../components/Footer";
 
 const MainLayout = ({ children }) => {
   return (
@@ -7,6 +8,7 @@ const MainLayout = ({ children }) => {
       <main style={{ marginTop: "100px", textAlign: "center" }}>
         {children}
       </main>
+      <Footer/>
     </>
   );
 };

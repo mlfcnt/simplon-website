@@ -7,6 +7,7 @@ import { Talents } from "../components/Talents";
 import { Contact } from "../components/Contact";
 import { Presentation } from "../components/Presentation";
 
+
 const Home = () => {
   const [selectedSection] = useContext(SectionContext);
 
