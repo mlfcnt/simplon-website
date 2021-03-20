@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
 
   return (
     <div style={{ minHeight: "100%", display: "grid" }}>
-      {typeof window !== "undefined" && window.innerWidth < 768 && <Burger />}
+      {typeof window !== "undefined" && window.innerWidth < 1024 && <Burger />}
       <Header id="header" />
       <main>
         {children}
@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => {
           <ArrowUpOutlined />
         </a>
       </main>
-      {typeof window !== "undefined" && window.innerWidth > 768 && <Footer />}
+      {typeof window !== "undefined" && window.innerWidth > 1024 && <Footer />}
     </div>
   );
 };

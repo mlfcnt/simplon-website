@@ -6,7 +6,7 @@ export const Summary = () => {
   const [targetOffset, setTargetOffset] = useState(undefined);
 
   useEffect(() => {
-    setTargetOffset(window.innerHeight / 2);
+    setTargetOffset(window.innerHeight / 7);
   }, []);
 
   const handleClick = (e) => {
@@ -15,7 +15,7 @@ export const Summary = () => {
 
   return (
     <div className="anchor-bloc">
-      <h1>Prochains stages</h1>
+      <h1 id="next-stages">Prochains stages</h1>
       <Anchor
         className="anchor"
         targetOffset={targetOffset}

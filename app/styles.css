@@ -16,7 +16,12 @@ html > * {
   margin: 0;
   box-sizing: border-box;
 }
-
+a {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
 header {
   padding: 0;
   margin: 0;
@@ -111,6 +116,16 @@ h4 {
   width: 200px;
   height: 200px;
   object-fit: contain;
+}
+
+.ant-menu-submenu-arrow {
+  display: none;
+}
+.anticon-menu {
+  color: #ce0033;
+  top: 0 !important;
+  left: 0 !important;
+  font-size: 20px !important;
 }
 footer {
   display: flex;
