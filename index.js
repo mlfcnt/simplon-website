@@ -6,6 +6,7 @@ const {
   Password,
   Integer,
   Relationship,
+  CalendarDay,
 } = require("@keystonejs/fields");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
@@ -108,6 +109,24 @@ keystone.createList("Tag", {
     create: access.userIsAdmin,
     delete: access.userIsAdmin,
     auth: true,
+  },
+});
+
+keystone.createList("Event", {
+  fields: {
+    type: {
+      type: Text,
+      defaultValue: "Stage",
+    },
+    name: {
+      type: Text,
+    },
+    dateFrom: {
+      type: CalendarDay,
+    },
+    dateTo: {
+      type: CalendarDay,
+    },
   },
 });
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Anchor } from "antd";
+import { Calendar } from "./Calendar";
 const { Link } = Anchor;
 
 export const Summary = () => {
@@ -32,6 +33,7 @@ export const Summary = () => {
           <Link href="#event1-apprenants" title="Apprenants disponibles" />
         </Link>
       </Anchor>
+      <Calendar />
     </div>
   );
 };

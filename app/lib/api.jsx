@@ -28,11 +28,35 @@ query{
 }
   `;
 
+const GET_EVENTS = `
+query{
+  allEvents {
+    id
+    type
+    name
+    dateFrom
+    dateTo
+  }
+}
+  `;
+
 const fetchStuff = (gqlQuery) => graphql(gqlQuery);
 
 export const usePortfolios = () => {
   const { isLoading, data, error } = useQuery("portfolios", () =>
     fetchStuff(GET_PORTFOLIOS)
+  );
+
+  return {
+    isLoading,
+    data,
+    error,
+  };
+};
+
+export const useEvents = () => {
+  const { isLoading, data, error } = useQuery("events", () =>
+    fetchStuff(GET_EVENTS)
   );
 
   return {
