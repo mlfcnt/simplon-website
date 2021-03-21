@@ -3,6 +3,7 @@ import { Footer } from "./Footer";
 import { animateScroll as scroll } from "react-scroll";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import { Burger } from "../components/Burger";
+import MediaQuery from "react-responsive";
 
 const MainLayout = ({ children }) => {
   const scrollToTop = () => {
@@ -11,7 +12,9 @@ const MainLayout = ({ children }) => {
 
   return (
     <div style={{ minHeight: "100%", display: "grid" }}>
-      {typeof window !== "undefined" && window.innerWidth < 1024 && <Burger />}
+      <MediaQuery maxWidth={1024}>
+        <Burger />
+      </MediaQuery>
       <Header id="header" />
       <main>
         {children}
@@ -19,7 +22,9 @@ const MainLayout = ({ children }) => {
           <ArrowUpOutlined />
         </a>
       </main>
-      {typeof window !== "undefined" && window.innerWidth > 1024 && <Footer />}
+      <MediaQuery minWidth={1024}>
+        <Footer />
+      </MediaQuery>
     </div>
   );
 };
