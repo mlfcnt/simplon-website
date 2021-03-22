@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { eTags } from "../lib/constants/tags";
 import { Portfolios } from "./Portfolios";
 import { Link } from "react-scroll";
+import { Button as AntButton } from "antd";
+import { Image } from "antd";
 
-export const Event = () => {
-  const [selectedTag, setSelectedTag] = useState(null);
+export const Event = ({ selectedTag, setSelectedTag, formationType }) => {
   const Button = ({ tag }) => {
     return (
       <Link to="event1-apprenants" smooth>
-        <button onClick={() => setSelectedTag(tag)}>
+        <AntButton onClick={() => setSelectedTag(tag)}>
           Voir les profiles liés
-        </button>
+        </AntButton>
       </Link>
     );
   };
@@ -18,7 +19,8 @@ export const Event = () => {
     <div id="event1">
       <h2>Stages de 2 semaines</h2>
       <h3>Avril - Mai 2021</h3>
-      <p id="event1-description">
+      <Image src="/planning.png" />
+      <p id="event1-description" style={{ fontSize: "1.1rem" }}>
         Le programme de formation (346h sur 2 mois et demi) s’articule autour de
         la découverte d’une culture numérique, l’appropriation des outils
         bureautiques et l’acquisition des compétences numériques fondamentales.
@@ -45,15 +47,13 @@ export const Event = () => {
         <li>Réaliser des publi-postages et des campagnes d’e-mailing</li>
         <li>Saisir et contrôler de données dans des logiciels</li>
       </ol>
-      <h4>INFOGRAPHIE</h4>
-      <Button tag={eTags.INFOGRAPHIE} />
+      <h4>INFOGRAPHIE</h4> <Button tag={eTags.INFOGRAPHIE} />
       <ol>
         <li>Créer et modifier des infographies ou des éléments multimédias</li>
         <li>Créer des visuels d’affiches ou de flyers</li>
         <li>Créer des modèles word ou PowerPoint pour des supports unifiés</li>
       </ol>
-      <h4>WEB-MARKETING</h4>
-      <Button tag={eTags["WEB-MARKETING"]} />
+      <h4>WEB-MARKETING</h4> <Button tag={eTags.WEB_MARKETING} />
       <ol>
         <li>
           Créer un formulaire, le diffuser auprès d’une communauté, traiter les
@@ -65,8 +65,7 @@ export const Event = () => {
           Mettre à jour un blog ou un site web statique (CMS type wordpress)
         </li>
       </ol>
-      <h4>INITIATION DEV WEB</h4>
-      <Button tag={eTags["INITIATION DEV WEB"]} />
+      <h4>INITIATION DEV WEB</h4> <Button tag={eTags.INITIATION_DEV_WEB} />
       <ol>
         <li>Assister et observer un développeur ou une équipe de Dev</li>
         <li>
@@ -80,7 +79,7 @@ export const Event = () => {
           contenu, organisation de plannings, etc.)
         </li>
       </ol>
-      <Portfolios selectedTag={selectedTag} />
+      <Portfolios selectedTag={selectedTag} formationType={formationType} />
     </div>
   );
 };

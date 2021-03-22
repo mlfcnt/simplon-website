@@ -21,6 +21,7 @@ query{
 		firstName
     lastName
     imageUrl
+    formation
     tags {
       name
     }
@@ -28,11 +29,33 @@ query{
 }
   `;
 
+const GET_CONFIGS = `
+  query{
+    allConfigs {
+      id,
+      isActive,
+      subTitle
+    }
+  }
+    `;
+
 const fetchStuff = (gqlQuery) => graphql(gqlQuery);
 
 export const usePortfolios = () => {
   const { isLoading, data, error } = useQuery("portfolios", () =>
     fetchStuff(GET_PORTFOLIOS)
+  );
+
+  return {
+    isLoading,
+    data,
+    error,
+  };
+};
+
+export const useConfigs = () => {
+  const { isLoading, data, error } = useQuery("configs", () =>
+    fetchStuff(GET_CONFIGS)
   );
 
   return {

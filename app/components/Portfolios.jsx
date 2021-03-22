@@ -1,33 +1,47 @@
 import React, { useMemo } from "react";
 import { usePortfolios } from "../lib/api";
 import { Card, Button, Image } from "antd";
+import { eFormationsTypes } from "../lib/constants/tags";
 const { Meta } = Card;
 
-export const Portfolios = ({ selectedTag }) => {
+export const Portfolios = ({ selectedTag, formationType }) => {
   const {
     isLoading,
     data: { data: { allPortfolios = [] } = {} } = {},
     error,
   } = usePortfolios();
 
-  const filteredPortfolios = useMemo(
-    () =>
-      allPortfolios.filter((portfolio) =>
-        selectedTag
-          ? portfolio.tags.some((tag) =>
+  const filteredPortfolios = useMemo(() => {
+    if (!allPortfolios?.length) return;
+    const filteredByType = allPortfolios.filter(
+      (x) => eFormationsTypes[x.formation] === formationType
+    );
+
+    return selectedTag
+      ? filteredByType.filter((portfolio) => {
+          return (
+            eFormationsTypes[portfolio.formation]?.toUpperCase() ===
+              formationType?.toUpperCase() &&
+            portfolio.tags.some((tag) =>
               tag.name?.toUpperCase().includes(selectedTag.toUpperCase())
             )
-          : portfolio
-      ),
-    [allPortfolios, selectedTag]
-  );
+          );
+        })
+      : filteredByType;
+  }, [allPortfolios, selectedTag]);
 
   if (isLoading) return <p>Chargement...</p>;
   if (error) return <p>Oops...</p>;
 
+  const displayStudents = () => {
+    if (!filteredPortfolios?.length)
+      return "Sélectionner une spécialité pour afficher les apprenant.es disponible";
+    return `Apprenants disponible (${filteredPortfolios.length})`;
+  };
+
   return (
-    <div id="event1-apprenants">
-      <h3>{`Apprenants disponible (${filteredPortfolios.length})`}</h3>
+    <div id={`event${formationType}-apprenants`}>
+      <h3>{displayStudents()}</h3>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {filteredPortfolios.map(({ firstName, lastName, id, imageUrl }) => (
           <Card

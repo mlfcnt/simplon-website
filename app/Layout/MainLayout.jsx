@@ -4,6 +4,7 @@ import { animateScroll as scroll } from "react-scroll";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import { Burger } from "../components/Burger";
 import MediaQuery from "react-responsive";
+import { SubTitle } from "./SubTitle";
 
 const MainLayout = ({ children }) => {
   const scrollToTop = () => {
@@ -16,6 +17,7 @@ const MainLayout = ({ children }) => {
         <Burger />
       </MediaQuery>
       <Header id="header" />
+      <SubTitle />
       <main>
         {children}
         <a onClick={scrollToTop} className="scroll_to_top_button">

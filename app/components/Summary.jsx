@@ -29,7 +29,16 @@ export const Summary = () => {
         >
           <Link href="#event1-description" title="Description" />
           <Link href="#event1-tags-list" title="Qualifications" />
-          <Link href="#event1-apprenants" title="Apprenants disponibles" />
+          <Link href="#eventcourte-apprenants" title="Apprenants disponibles" />
+        </Link>
+        <Link
+          href="#event2"
+          title="2- Stage Développeur.se web (2.5 mois) - 17 Mai au 27 Juillet"
+          className="anchor-title"
+        >
+          <Link href="#event2-description" title="Description" />
+          <Link href="#event2-tags-list" title="Qualifications" />
+          <Link href="#eventlongue-apprenants" title="Apprenants disponibles" />
         </Link>
       </Anchor>
     </div>

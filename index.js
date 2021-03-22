@@ -6,6 +6,7 @@ const {
   Password,
   Integer,
   Relationship,
+  Select,
 } = require("@keystonejs/fields");
 const { GraphQLApp } = require("@keystonejs/app-graphql");
 const { AdminUIApp } = require("@keystonejs/app-admin-ui");
@@ -127,10 +128,34 @@ keystone.createList("Portfolio", {
     imageUrl: {
       type: Text,
     },
+    formation: {
+      type: Select,
+      options: "courte, longue",
+      defaultValue: "courte",
+      isRequired: true,
+    },
     tags: {
       type: Relationship,
       ref: "Tag",
       many: true,
+    },
+  },
+  access: {
+    update: access.userIsAdmin,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
+});
+
+keystone.createList("Config", {
+  fields: {
+    subTitle: {
+      type: Markdown,
+    },
+    isActive: {
+      type: Checkbox,
+      defaultValue: true,
     },
   },
   access: {
