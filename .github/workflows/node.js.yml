@@ -11,6 +11,9 @@ on:
 
 jobs:
   build:
+    env: 
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+      COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
 
     runs-on: ubuntu-latest
 
@@ -26,9 +29,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: echo "Hello $MONGO_URI, this is $COOKIE_SECRET :)"
-      env: 
-        MONGO_URI: ${{ secrets.MONGO_URI }}
-        COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
     - run: yarn    
     - run: yarn build
     
