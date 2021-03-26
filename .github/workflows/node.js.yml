@@ -25,11 +25,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn    
-    - run: yarn build
+    - run: echo "Hello $MONGO_URI, this is $COOKIE_SECRET :)"
       env: 
         MONGO_URI: ${{ secrets.MONGO_URI }}
         COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
+    - run: yarn    
+    - run: yarn build
+    
+
     
     - name: FTP Deploy
       # You may pin to the exact commit or the version.
