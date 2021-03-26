@@ -24,7 +24,7 @@ const MainLayout = ({ children }) => {
           <ArrowUpOutlined />
         </a>
       </main>
-      <MediaQuery minWidth={1024}>
+      <MediaQuery minWidth={1025}>
         <Footer />
       </MediaQuery>
     </div>
