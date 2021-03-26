@@ -25,6 +25,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+      env: 
+        MONGO_URI: ${{ secrets.MONGO_URI }}
+        COOKIE_SECRET: ${{ secrets.COOKIE_SECRET }}
     - run: yarn    
     - run: yarn build
     
